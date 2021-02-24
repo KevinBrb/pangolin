@@ -68,6 +68,16 @@ Démarrer l'application :
 ng serve --open
 ```
 
+## Import d'un jeu de données
+
+Si vous souhaitez importer des données de tests : 
+
+```shell
+node ./data/import.js
+```
+
+Attention à bien modifier le .env ainsi que la ligne 5 du fichier app/models/Pangolin.js pour le nom de la liste
+
 ## Quelques tests
 
 J'ai mis en place quelques tests unitaires pour la forme ! Pour les lancer, exécuter cette commande :
