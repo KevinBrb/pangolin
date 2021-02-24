@@ -14,11 +14,13 @@ export class AppComponent {
   id: any;
   pangolin: any;
 
-  constructor(public authService: AuthService) {
-      this.retrievedInfos = JSON.parse(localStorage.getItem('currentUser')!);
-      this.loggedName = this.retrievedInfos.login;
-      this.id = this.retrievedInfos._id;
-    }
+  constructor(public authService: AuthService) { }
+
+  ngOnInit(): void {
+    this.retrievedInfos = JSON.parse(localStorage.getItem('currentUser')!);
+    this.loggedName = this.retrievedInfos.login;
+    this.id = this.retrievedInfos._id;
+  }
 
   logout(): void {
     this.authService.doLogout();
