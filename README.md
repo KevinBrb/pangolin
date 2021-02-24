@@ -67,3 +67,11 @@ Démarrer l'application :
 ```shell
 ng serve --open
 ```
+
+## Quelques tests
+
+J'ai mis en place quelques tests unitaires pour la forme ! Pour les lancer, exécuter cette commande :
+
+```shell
+npm run test
+```
