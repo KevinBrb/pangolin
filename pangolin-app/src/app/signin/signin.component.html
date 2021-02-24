@@ -1,0 +1,16 @@
+<div class="auth-wrapper">
+    <h3 class="h3 mb-3 font-weight-normal auth-wrapper__text-center">Please sign in <span>
+        <p>Find new friends with PangoBook !</p></span></h3>
+    <form class="form-signin auth-wrapper__form" [formGroup]="signinForm" (ngSubmit)="login()">
+        <div class="form-group">
+            <label>Login</label>
+            <input type="text" class="form-control" formControlName="login" placeholder="Enter login" required>
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control" formControlName="password" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-block btn-primary">Sign in</button>
+        <a routerLink="/signup" class="form-signin__register">Not registered yet? Click here!</a>
+    </form>
+</div>

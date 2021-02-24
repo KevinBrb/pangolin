@@ -1,0 +1,31 @@
+<div class="auth-wrapper">
+    <form class="form-signin" [formGroup]="updateForm" (ngSubmit)="updatePangolin()">
+        <h3 class="h3 mb-3 font-weight-normal text-center">Modify your account</h3>
+        <div class="form-group">
+            <label>login</label>
+            <input type="text" class="form-control" formControlName="login" [(ngModel)]="this.currentUser.login" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea formControlName="description" [(ngModel)]="this.currentUser.description" class="form-control" id="description" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="food">Food</label>
+            <select formControlName="food" [(ngModel)]="this.currentUser.food" class="form-control" id="food">
+              <option value="" disabled>--Please choose an option--</option>
+              <option value="Fourmis">Fourmis</option>
+              <option value="Termites">Termites</option>
+              <option value="Fourmis et termites">Fourmis et termites</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Email address</label>
+            <input type="email" [(ngModel)]="this.currentUser.email" class="form-control" formControlName="email" placeholder="Enter email" required>
+        </div>
+        <div class="form-group">
+            <label>Age</label>
+            <input type="number" [(ngModel)]="this.currentUser.age" class="form-control" formControlName="age" placeholder="Age" min="1" max="10" required>
+        </div>
+        <button type="submit" class="btn btn-block btn-primary">Update</button>
+    </form>
+</div>

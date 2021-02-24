@@ -1,0 +1,27 @@
+@use 'src/styles' as s;
+
+.my-2 {
+    width: 100%;
+    &__p-2__signin {
+        float: right;
+        padding: s.$gutter / 3;
+        background-color: s.$color-nav;
+        border-radius: .5em;
+        color: white;
+    }
+    &__p-2__user {
+        float: right;
+        color: white
+    }
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #343a40;
+    padding: 2em;
+    color: white;
+    text-align: center;
+}

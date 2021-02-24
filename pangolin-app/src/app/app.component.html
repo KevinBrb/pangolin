@@ -1,0 +1,18 @@
+<div id="header">
+  <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <a routerLink="" class="navbar-brand">PangoBook</a>
+    <nav class="my-2 my-md-0 mr-md-3">
+      <a *ngIf="this.authService.isLoggedIn" class="my-2__p-2__user" routerLink="/my-account" [queryParams]="{id: id}">{{ loggedName }}</a>
+      <a *ngIf="this.authService.isLoggedIn" class="my-2__p-2" routerLink="/pangolins">Find pangolins</a>
+      <a *ngIf="!this.authService.isLoggedIn" class="my-2__p-2__signin" routerLink="/signin">Signin</a>
+    </nav>
+    <button (click)="logout()" *ngIf="this.authService.isLoggedIn" type="button" class="btn btn-danger">Logout</button>
+  </nav>
+
+  <div class="container mt-3">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<div id="footer">
+  Copyright © PangoBook - All rights reserved
+</div>

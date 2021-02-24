@@ -15,7 +15,7 @@ const app = express();
 
 // Define who can access to server
 const corsOptions = {
-    origin: process.env.FRONTEND
+    origin: process.env.FRONTEND,
 };
 
 // CORS application on server
@@ -26,9 +26,15 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Routes prefix
-app.use('v1', router);
+app.use('/v1', router);
 
-// Server laucnh function
-app.listen(port, () => {
-    console.log(`Server launched on http://localhost:${port}`)
-});
+let launcher = app;
+
+// Server launch function
+app.launch = () => {
+    app.listen(port, () => {
+        console.log(`Server launched on http://localhost:${port}`)
+    });
+};
+
+module.exports = app;

@@ -1,0 +1,38 @@
+<div class="container">
+	<div class="row">
+		<div class="col-lg-5 col-sm-8">
+
+            <div class="card hovercard">
+                <div class="cardheader">
+
+                </div>
+                <div class="avatar">
+                    <img alt="avatar" src="assets/img/pangolin-BIS.jpg">
+                </div>
+                <div class="info">
+                    <div class="title">
+                        {{ this.currentProfile.login }}
+                    </div>
+                    <div class="desc">{{ this.currentProfile.description }}</div>
+                    <div class="desc">{{ this.currentProfile.age }} years</div>
+                    <div class="desc"> I love {{ this.currentProfile.food }}</div>
+                    <div class="desc">Race: {{ this.currentProfile.race }}</div>
+                    <div class="desc">Species: {{ this.currentProfile.species }}</div>
+                    <div class="desc">{{ this.currentProfile.friends }} friend(s)</div>
+                </div>
+                <div class="bottom" *ngIf="!this.friendAdded">
+                    <button (click)="addFriend()" class="btn btn-primary">
+                        Ajouter
+                    </button>
+                </div>
+                <div class="bottom" *ngIf="this.friendAdded">
+                    <button (click)="deleteFriend()" type="submit" class="btn btn-danger">
+                        Supprimer
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+	</div>
+</div>

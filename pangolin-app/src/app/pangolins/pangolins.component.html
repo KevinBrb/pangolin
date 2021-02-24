@@ -1,0 +1,17 @@
+<div class="list row">
+    <h2 class="list__pango-list">Welcome {{ loggedName }}</h2>
+    <p class="list__text">find Pangolins and add them to your friend list !</p>
+    <div class="col-md-8 list__md-8">
+    <div class="card-deck">
+      <div class="card-deck__card card mb-5" *ngFor="let pangolin of pangolins;">
+        <div class="card-body">
+          <h5 class="card-title">{{ pangolin.login }}</h5>
+          <p [innerHTML]="pangolin.description" class="card-text"></p>
+        </div>
+        <div class="card-footer">
+          <a [routerLink]="['/pangolins', pangolin._id]" class="btn btn-primary">Voir</a>
+        </div>
+      </div>
+    </div>
+    
+</div>

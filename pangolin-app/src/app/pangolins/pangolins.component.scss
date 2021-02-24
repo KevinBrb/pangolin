@@ -1,0 +1,26 @@
+.list {
+    &__pango-list {
+        width: 100%;
+        text-align: center;
+        margin: 2rem 0;
+    }
+    &__md-8 {
+        width: 100%;
+        margin: auto;
+    }
+    &__text {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.card-deck{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    &__card {
+        min-width: 30%;
+        max-width: 30%;
+    }
+}
