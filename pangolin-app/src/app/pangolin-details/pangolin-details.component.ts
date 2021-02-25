@@ -29,6 +29,8 @@ export class PangolinDetailsComponent implements OnInit {
     public router: Router
   ) {
     this.retrievedAccountInfos = JSON.parse(localStorage.getItem('currentUser')!);
+    this.checkIfFriend();
+    this.updateLocalStorage();
   }
 
   ngOnInit(): void {
@@ -39,7 +41,6 @@ export class PangolinDetailsComponent implements OnInit {
   getDetails(): void {
     this.authService.getAccount(this.route.snapshot.params.id).subscribe(
       data => {
-        console.log(data);
         this.currentProfile = data;
         this.currentProfile.friends = this.currentProfile.friends.length;
       },
