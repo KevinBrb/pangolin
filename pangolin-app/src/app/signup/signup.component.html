@@ -1,31 +1,49 @@
 <div class="auth-wrapper">
-    <form class="form-signin" [formGroup]="signupForm" (ngSubmit)="registerPangolin()">
+    <form *ngIf="!this.id" class="form-signin" [formGroup]="signupForm" (ngSubmit)="registerPangolin()">
         <h3 class="h3 mb-3 font-weight-normal text-center">Please sign up</h3>
-        <div class="form-group">
-            <label>login</label>
-            <input type="text" class="form-control" formControlName="login" placeholder="Enter login" required>
+        <div class="form-row">
+            <div class="col">
+                <label>login</label>
+                <input type="text" class="form-control" formControlName="login" placeholder="Enter login" required>
+                
+            </div>
+            <div class="col">
+                <label>Email address</label>
+                <input type="email" class="form-control" formControlName="email" placeholder="Enter email" required>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="description">Description</label>
-            <textarea formControlName="description" class="form-control" id="description" rows="3"></textarea>
+        <div class="form-row">
+            <div class="col">
+                <label>Password</label>
+                <input type="password" class="form-control" formControlName="password" placeholder="Password" required>
+                
+            </div>
+            <div class="col">
+                <label>Confirm password</label>
+                <input type="password" class="form-control" formControlName="passwordConfirm" placeholder="Password confirm" required>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="food">Food</label>
-            <select formControlName="food" class="form-control" id="food">
-              <option value="" disabled>--Please choose an option--</option>
-              <option value="Fourmis">Fourmis</option>
-              <option value="Termites">Termites</option>
-              <option value="Fourmis et termites">Fourmis et termites</option>
-            </select>
+        <div class="form-row">
+            <div class="col">
+                <label for="species">Species</label>
+                <select formControlName="species" class="form-control" id="species">
+                <option value="" disabled>--Please choose an option--</option>
+                <option value="Fourmis">Giant Pangolin</option>
+                <option value="Termites">Modern Pangolin</option>
+                </select>
+                
+            </div>
+            <div class="col">
+                <label for="food">Food</label>
+                <select formControlName="food" class="form-control" id="food">
+                <option value="" disabled>--Please choose an option--</option>
+                <option value="Fourmis">Fourmis</option>
+                <option value="Termites">Termites</option>
+                <option value="Fourmis et termites">Fourmis et termites</option>
+                </select>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="species">Species</label>
-            <select formControlName="species" class="form-control" id="species">
-              <option value="" disabled>--Please choose an option--</option>
-              <option value="Giant pangolin">Giant pangolin</option>
-              <option value="Modern pangolin">Modern pangolin</option>
-            </select>
-        </div>
+       
         <div class="form-group">
             <label for="race">Race</label>
             <select formControlName="race" class="form-control" id="race">
@@ -34,22 +52,95 @@
               <option value="Smutsiinae">Smutsiinae</option>
             </select>
         </div>
-        <div class="form-group">
-            <label>Email address</label>
-            <input type="email" class="form-control" formControlName="email" placeholder="Enter email" required>
+        <div class="form-row">
+            <div class="col">
+                <label for="description">Description</label>
+                <textarea formControlName="description" class="form-control" id="description" rows="1"></textarea>                
+            </div>
+            <div class="col">
+                <label>Age</label>
+                <input type="number" class="form-control" formControlName="age" placeholder="Age" min="1" max="10" required>
+            </div>
         </div>
         <div class="form-group">
-            <label>Age</label>
-            <input type="number" class="form-control" formControlName="age" placeholder="Age" min="1" max="10" required>
+            
+            
         </div>
         <div class="form-group">
-            <label>Password</label>
-            <input type="password" class="form-control" formControlName="password" placeholder="Password" required>
+        </div>
+        
+        <button type="submit" class="btn btn-block btn-primary">Sign up</button>
+    </form>
+    <form *ngIf="this.id" class="form-signin" [formGroup]="signupForm" (ngSubmit)="registerPangolinFriend()">
+        <h3 class="h3 mb-3 font-weight-normal text-center">Please sign up</h3>
+        <div class="form-row">
+            <div class="col">
+                <label>login</label>
+                <input type="text" class="form-control" formControlName="login" placeholder="Enter login" required>
+                
+            </div>
+            <div class="col">
+                <label>Email address</label>
+                <input type="email" class="form-control" formControlName="email" placeholder="Enter email" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <label>Password</label>
+                <input type="password" class="form-control" formControlName="password" placeholder="Password" required>
+                
+            </div>
+            <div class="col">
+                <label>Confirm password</label>
+                <input type="password" class="form-control" formControlName="passwordConfirm" placeholder="Password confirm" required>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <label for="species">Species</label>
+                <select formControlName="species" class="form-control" id="species">
+                <option value="" disabled>--Please choose an option--</option>
+                <option value="Fourmis">Giant Pangolin</option>
+                <option value="Termites">Modern Pangolin</option>
+                </select>
+                
+            </div>
+            <div class="col">
+                <label for="food">Food</label>
+                <select formControlName="food" class="form-control" id="food">
+                <option value="" disabled>--Please choose an option--</option>
+                <option value="Fourmis">Fourmis</option>
+                <option value="Termites">Termites</option>
+                <option value="Fourmis et termites">Fourmis et termites</option>
+                </select>
+            </div>
+        </div>
+       
+        <div class="form-group">
+            <label for="race">Race</label>
+            <select formControlName="race" class="form-control" id="race">
+              <option value="" disabled>--Please choose an option--</option>
+              <option value="Manidae">Manidae</option>
+              <option value="Smutsiinae">Smutsiinae</option>
+            </select>
+        </div>
+        <div class="form-row">
+            <div class="col">
+                <label for="description">Description</label>
+                <textarea formControlName="description" class="form-control" id="description" rows="1"></textarea>                
+            </div>
+            <div class="col">
+                <label>Age</label>
+                <input type="number" class="form-control" formControlName="age" placeholder="Age" min="1" max="10" required>
+            </div>
         </div>
         <div class="form-group">
-            <label>Confirm password</label>
-            <input type="password" class="form-control" formControlName="passwordConfirm" placeholder="Password confirm" required>
+            
+            
         </div>
+        <div class="form-group">
+        </div>
+        
         <button type="submit" class="btn btn-block btn-primary">Sign up</button>
     </form>
 </div>

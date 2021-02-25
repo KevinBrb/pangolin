@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: '', redirectTo: 'signin', pathMatch: 'full' },
   { path: 'signin', component: SigninComponent },
   { path: 'signup', component: SignupComponent },
+  { path: 'signup/friend', component: SignupComponent },
   { path: 'pangolins', component: PangolinsComponent, canActivate: [AuthGuard] },
   { path: 'pangolins/:id', component: PangolinDetailsComponent, canActivate: [AuthGuard] },
   { path: 'my-account', component: PangolinProfileComponent, canActivate: [AuthGuard] },

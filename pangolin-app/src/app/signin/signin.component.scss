@@ -18,3 +18,15 @@
         min-width: 30%;
     }
 }
+
+@media screen and (max-width: 640px) {
+    .auth-wrapper {
+        display: block;
+        margin: auto;
+        &__text-center {
+            color: #1877f2;
+            font-weight: bolder;
+            max-width: 80%;
+        }
+    }
+  }

@@ -55,7 +55,6 @@ class Pangolin {
     }
 
     static async findByIdAndRemoveFriend(id, data) {
-        console.log(new ObjectId(data.id), new ObjectId(id))
         try {
             const pangolinUpdateResult = await (await collection).updateOne(
             {
@@ -72,7 +71,8 @@ class Pangolin {
     }
 
     async create() {
-        await (await collection).insertOne(this);
+        const result = await (await collection).insertOne(this);
+        return result.ops[0];
     }
 }
 

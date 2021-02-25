@@ -20,9 +20,16 @@
     background-color: #343a40;
     padding: 2em;
     color: white;
-    margin-top: 20px;
+    text-align: center;
+    margin-top: 20px
 }
 
 #footer p {
-    margin: 0 auto
+    margin: auto;
+}
+
+@media screen and (max-width: 640px) {
+    #footer {
+        display: none;
+    }
 }

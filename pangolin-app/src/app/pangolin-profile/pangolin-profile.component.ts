@@ -9,7 +9,15 @@ import { AuthService } from '../shared/auth.service';
 })
 export class PangolinProfileComponent implements OnInit {
 
-  currentUser: any;
+  currentProfile: any = {
+    login: '',
+    description: '',
+    age: '',
+    food: '',
+    race: '',
+    species: '',
+    friends: ''
+  };
   id: any;
   retrievedInfos: any;
 
@@ -32,8 +40,8 @@ export class PangolinProfileComponent implements OnInit {
   getMyAccount(): void {
     this.authService.getMyAccount(this.id).subscribe(
       data => {
-        this.currentUser = data.body;
-        this.currentUser.friends = this.currentUser.friends.length;
+        this.currentProfile = data.body;
+        this.currentProfile.friends = this.currentProfile.friends.length;
       },
       error => {
         console.log(error);

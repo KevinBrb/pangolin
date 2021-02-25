@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 export class SignupComponent implements OnInit {
 
   signupForm: FormGroup;
+  retrievedInfos: any;
+  id!: number;
 
   constructor(
     public fb: FormBuilder,
@@ -26,17 +28,35 @@ export class SignupComponent implements OnInit {
       email: [''],
       age: [],
       password: [''],
-      passwordConfirm: ['']
-    })
+      passwordConfirm: [''],
+      currentUserID: ['']
+    });
+
+    this.retrievedInfos = JSON.parse(localStorage.getItem('currentUser')!);
+    this.id = this.retrievedInfos._id;
   }
 
   ngOnInit() { }
-
   registerPangolin() {
     this.authService.signUp(this.signupForm.value).subscribe((res) => {
       if (res) {
         this.signupForm.reset()
         this.router.navigate(['signin']);
+      }
+    })
+  }
+
+  registerPangolinFriend() {
+    if (this.id !== null) {
+      this.signupForm.value.currentUserId = this.id;
+    }
+
+    console.log(this.signupForm.value);
+    
+    this.authService.signUpFriend(this.signupForm.value).subscribe((res) => {      
+      if (res) {
+        this.signupForm.reset();
+        this.router.navigate(['pangolins']);
       }
     })
   }

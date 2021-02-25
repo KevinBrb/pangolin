@@ -13,7 +13,15 @@ export class PangolinProfileUpdateComponent implements OnInit {
   updateForm: FormGroup;
   id: any;
   retrievedInfos: any;
-  currentUser: any;
+  currentProfile: any = {
+    login: '',
+    description: '',
+    age: '',
+    food: '',
+    race: '',
+    species: '',
+    friends: ''
+  };
 
   constructor(
     public fb: FormBuilder,
@@ -47,7 +55,7 @@ export class PangolinProfileUpdateComponent implements OnInit {
     this.authService.getMyAccount(this.id).subscribe(
       data => {
         console.log(data.body)
-        this.currentUser = data.body;
+        this.currentProfile = data.body;
       },
       error => {
         console.log(error);

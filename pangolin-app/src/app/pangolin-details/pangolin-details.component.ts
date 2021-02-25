@@ -10,9 +10,18 @@ import { AuthService } from '../shared/auth.service';
 export class PangolinDetailsComponent implements OnInit {
   
   retrievedAccountInfos: any;
-  currentProfile: any;
+  currentProfile: any = {
+    login: '',
+    description: '',
+    age: '',
+    food: '',
+    race: '',
+    species: '',
+    friends: ''
+  };
   id: any;
   friendAdded = false;
+  login: any;
 
   constructor(
     public authService: AuthService,
@@ -36,7 +45,7 @@ export class PangolinDetailsComponent implements OnInit {
       },
       error => {
         console.log(error);
-    });;
+    });
   }
 
   checkIfFriend(): void {
@@ -51,14 +60,12 @@ export class PangolinDetailsComponent implements OnInit {
 
   updateLocalStorage(): void {
     this.authService.getUserProfile(this.retrievedAccountInfos._id).subscribe((res) => {
-      console.log(res)
       localStorage.setItem('currentUser', JSON.stringify(res));
     });
   }
 
   addFriend(): void {
     this.currentProfile.idAccount = this.retrievedAccountInfos._id;
-    console.log(this.retrievedAccountInfos)
     this.authService.updateFriend(this.currentProfile).subscribe((res) => {
       if (res) {
         this.updateLocalStorage();
@@ -69,8 +76,6 @@ export class PangolinDetailsComponent implements OnInit {
 
   deleteFriend(): void {
     this.currentProfile.idAccount = this.retrievedAccountInfos._id;
-    
-    console.log(this.currentProfile.idAccount);
     this.authService.deleteFriend(this.currentProfile).subscribe((res) => {
       if (res) {
         this.updateLocalStorage();

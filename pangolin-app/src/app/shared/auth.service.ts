@@ -28,6 +28,15 @@ export class AuthService {
       )
   }
 
+  // Sign-up
+  signUpFriend(user: Pangolin): Observable<any> {
+    let api = `${this.endpoint}/register/friend`;
+    return this.http.post(api, user)
+      .pipe(
+        catchError(this.handleError)
+      )
+  }
+
   update(id: any, pangolin: Pangolin) {
     return this.http.put<any>(`${this.endpoint}/my-account/update/${id}`, pangolin).pipe(
       catchError(this.handleError)

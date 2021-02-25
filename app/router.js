@@ -12,6 +12,7 @@ const router = Router();
 
 router.post('/login', pangolinController.login);
 router.post('/register', pangolinController.signup);
+router.post('/register/friend', pangolinController.signupFriend);
 router.get('/', authorize, pangolinController.allPangolins);
 router.get('/pangolins/:id', pangolinController.onePangolin);
 router.get('/my-account', pangolinController.myAccount);

@@ -11,14 +11,14 @@
                 </div>
                 <div class="info">
                     <div class="title">
-                        {{ this.currentUser.login }}
+                        {{ this.currentProfile.login }}
                     </div>
-                    <div [innerHtml]="this.currentUser.description" class="desc"></div>
-                    <div class="desc"><b>Age: </b>{{ this.currentUser.age }} years</div>
-                    <div class="desc"><b>I love: </b>{{ this.currentUser.food }}</div>
-                    <div class="desc"><b>Race: </b>{{ this.currentUser.race }}</div>
-                    <div class="desc"><b>Species: </b>{{ this.currentUser.species }}</div>
-                    <div class="desc">{{ this.currentUser.friends }} friend(s)</div>
+                    <div [innerHtml]="this.currentProfile.description" class="desc"></div>
+                    <div class="desc"><b>Age: </b>{{ this.currentProfile.age }} years</div>
+                    <div class="desc"><b>I love: </b>{{ this.currentProfile.food }}</div>
+                    <div class="desc"><b>Race: </b>{{ this.currentProfile.race }}</div>
+                    <div class="desc"><b>Species: </b>{{ this.currentProfile.species }}</div>
+                    <div class="desc">{{ this.currentProfile.friends }} friend(s)</div>
                 </div>
                 <div class="bottom">
                     <a routerLink="/my-account/update" class="update">Modifier</a>
