@@ -13,6 +13,7 @@ export class SignupComponent implements OnInit {
   signupForm: FormGroup;
   retrievedInfos: any;
   id!: number;
+  errorMessage!: string;
 
   constructor(
     public fb: FormBuilder,
@@ -33,7 +34,9 @@ export class SignupComponent implements OnInit {
     });
 
     this.retrievedInfos = JSON.parse(localStorage.getItem('currentUser')!);
-    this.id = this.retrievedInfos._id;
+    if(this.retrievedInfos !== null){
+      this.id = this.retrievedInfos._id;
+    }
   }
 
   ngOnInit() { }
@@ -58,6 +61,11 @@ export class SignupComponent implements OnInit {
         this.signupForm.reset();
         this.router.navigate(['pangolins']);
       }
+    },
+    (err) => {
+      const error = JSON.stringify(err);
+      console.log(error);
+      this.errorMessage = err;
     })
   }
 

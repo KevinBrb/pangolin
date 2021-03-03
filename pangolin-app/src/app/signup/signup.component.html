@@ -1,5 +1,6 @@
 <div class="auth-wrapper">
-    <form *ngIf="!this.id" class="form-signin" [formGroup]="signupForm" (ngSubmit)="registerPangolin()">
+    <div *ngIf="this.errorMessage" class="alert alert-danger">{{ this.errorMessage }}</div>
+    <form *ngIf="!this.id" class="form-signin" [formGroup]="signupForm" (ngSubmit)="registerPangolinFriend()">
         <h3 class="h3 mb-3 font-weight-normal text-center">Please sign up</h3>
         <div class="form-row">
             <div class="col">

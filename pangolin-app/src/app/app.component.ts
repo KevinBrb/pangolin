@@ -14,12 +14,19 @@ export class AppComponent {
   id: any;
   pangolin: any;
 
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService) { 
+    this.retrievedInfos = JSON.parse(localStorage.getItem('currentUser')!);
+    if(this.authService.isLoggedIn) {      
+      this.loggedName = this.retrievedInfos.login;
+    } else {
+      this.loggedName = '';
+    }
+  }
 
   ngOnInit(): void {
-    this.retrievedInfos = JSON.parse(localStorage.getItem('currentUser')!);
-    this.loggedName = this.retrievedInfos.login;
-    this.id = this.retrievedInfos._id;
+    if(this.retrievedInfos !== null){
+      this.id = this.retrievedInfos._id;
+    }
   }
 
   logout(): void {
